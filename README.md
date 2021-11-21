@@ -44,7 +44,6 @@ OAUTH_HEAP_CALLBACK_URL="https://auth.example.com/auth/heap/callback"
 Here's an example *Auth Hash* available in `request.env['omniauth.auth']`:
 
 ```ruby
-# TODO add info about the actual auth hash here
 {
   :provider => 'heap',
   :uid => nil,
@@ -52,11 +51,9 @@ Here's an example *Auth Hash* available in `request.env['omniauth.auth']`:
     :name => nil
   },
   :credentials => {
-    :token => '47ec209c5e431ce3272d75e27bbd9b4dd213a9...',
-    :expires_at => 1888538392,
-    :expires => true
+    :token => 'ehJy6IkiOiJFUzUxGcGnR5cMiXVCJ9.eyJqdGk47eiOiIc209c5eiJod431ce3272dd213a9...',
+    :expires => false
   },
-  :extra => {
-  }
+  :extra => { }
 }
 ```
