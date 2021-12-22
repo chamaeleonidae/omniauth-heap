@@ -17,6 +17,9 @@ module OmniAuth
         grant_type: 'authorization_code'
       }
 
+      uid { access_token['env_id'] }
+      extra { access_token.to_hash }
+
       def callback_url
         ENV['OAUTH_HEAP_CALLBACK_URL'] || (full_host + script_name + callback_path)
       end
