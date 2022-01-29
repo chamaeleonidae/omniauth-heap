@@ -18,7 +18,23 @@ module OmniAuth
       }
 
       uid { access_token['id_token'] }
-      extra { access_token.to_hash } # temporary until we have the env_id
+
+      info do
+        {
+          email: raw_info['authorized_by'],
+          env_id: raw_info['env_id'],
+        }
+      end
+
+      extra do
+        {
+          raw_info: raw_info,
+        }
+      end
+
+      def raw_info
+        @raw_info ||= access_token.get("https://heapanalytics.com/api/partner/v1/metadata/#{access_token['id_token']}").parsed
+      end
 
       def callback_url
         ENV['OAUTH_HEAP_CALLBACK_URL'] || (full_host + script_name + callback_path)
